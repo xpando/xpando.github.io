@@ -57,23 +57,69 @@
                     <div class="section-inner">
                         <h2 class="heading">About Me</h2>
                         <div class="content">
-                            <p>Lorem ipsum dolor sit amet, alienum mnesarchum cum ei, usu vivendum urbanitas te, te causae atomorum vix. Agam consectetuer has te. Cum timeam omittam ne. Persius diceret pro in. Vim ad volutpat similique.</p>
-                            <p>In usu nullam apeirian indoctum, nam ea eligendi repudiare, dicta percipit definiebas ad qui. Iudico erroribus assueverit eu nec, quod solet vocent an mel. Eum vidit dolor civibus at, at aperiam tractatos est. Eum vero zril appellantur et, cibo nullam vivendo mea ei, errem sententiae pro ut.</p>
-                        </div><!--//content-->
+                            <p>I am a full stack web developer/architect with 17 years experience delivering web applications used by millions of users worldwide. My interests include front-end technologies like HTML5, jQuery, Angular, Knockout, Backbone, Bootstrap, server technologies like ASP.NET and NodeJS and storage and search technologies like SQL Server, MongoDB, Solr and ElasticSearch. In my spare time I'm playing with DevOps technologies like Vagrant, Docker, Chef, Puppet, Ansible and SaltStack.</p>
                     </div><!--//section-inner-->                 
                 </section><!--//section-->
                 
+                <section class="experience section">
+                    <div class="section-inner">
+                        <h2 class="heading">Work Experience</h2>
+                        <div class="item">
+                            <h3 class="title">Technical Architect - <span class="place"><a href="http://www.marykay.com">Mary Kay</a></span> <span class="year">(2009 - Present)</span></h3>
+                            
+                            <ul>
+                                <li><strong>Sitecore</strong> - Currently working on replatforming marykay.com and marykayintouch.com on Sitecore CMS. In this role I'm acting as the Sitecore architect. I provide prototypes and code samples for the more difficult parts of the application and provide technical guidance to the development staff and partners that are building the solution.</li>
+                                <li><strong>Quartet Services</strong> - Led the technical design and implementation of the services tier for marykay.com and its Personal Web Site program that allows Mary Kay consultants to sign up for and sell Mary Kay products online. The service was developed using WCF hosted in IIS. A CQRS design was used that separated commands from queries. A domain model was produced using DDD and state is persisted using an Event Sourcing strategy. The event store is currently in SQL server. The event sourcing strategy made integrating ElasticSearch very easy. ElasticSearch provides the full text searching and filtering capabilities for the myCustomers application.</li>
+                                <li><strong>myCustomers</strong> - Led the design and implementation of a UX redesign for myCustomers. myCustomers is a CRM tool that Mary Kay consultants use to manage their customer list and orders placed online at marykay.com</li>
+                                <li><strong>FrontOffice CRM</strong> - Participated in the delivery of a WPF composite UI application used by the telephone support staff. The interesting technology here was the MVVM pattern with WPF, Unity and MEF for pluggable UI components and Reactive extensions for .NET (Rx) for loosely coupled event processing.</li>
+                                <li><strong>BI Mapping Visualization</strong> - Developed a Silverlight application that would display reporting data from an OLAP cube overlaid on a map. Data would be displayed in regions, states and zips depending on the zoom level. Allowed user to adjust coloring and ranges for the quintiles.</li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <h3 class="title">Technology Consultant - <span class="place"><a href="http://www.learnvisualstudio.net">LearnVisualStudio.NET</a></span> <span class="year">(2006 - 2009)</span></h3>
+
+                            <ul>
+                                <li>Developed ecommerce solution for selling subscription based access to video training content. Both LearnVisualStudio.NET and TrainingSpot.com use this solution.</li>
+                                <li>Developed an email campaign tool used to drive traffic and sales for LearnVisualStudio.NET</li>
+                                <li>Researched and provided training course materials for LearnVisualStudio.NET.</li>
+                                <li>Developed and recorded video training content for ASP.NET MVC 1.0</li>
+                                <li>Performed server maintenance for Windows Server 2003 and Sql Server 2005.</li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <h3 class="title">Technical Consultant - <span class="place"><a href="http://www.marykay.com">Mary Kay</a></span> <span class="year">(1998 - 2006)</span></h3>
+
+                            <ul>
+                                <li>Built the first version of marykayintouch.com, a content portal used by Mary Kay sales consultants to access news and information from Mary Kay corporate and to access many of the other suite of applications provided by Mary Kay headquarters. Used asp 3.0, VB 6, Visual InterDev and Sql Server. I also participated in the conversion of this project to .NET in later years. After porting to .NET I integrated the Google search appliance to provide a better search experience to the consultants.</li>
+                                <li>Participated in the development of core framework components shared by many of the .NET applications including the online ordering site.</li>
+                                <li>Built the mail order entry application. This application was particularly challenging because it required quite a lot of keyboard interaction so that the data entry people could quickly navigate the order sheets. It was basically a SPA application developed in 2001-2002 using HTCs and the WebService behavior HTC from Microsoft. One interesting aspect was I built a DataSet in JavaScript so the client code was very similar to code that manipulated the order on the server side.</li>
+                                <li>Developed a calendar application using ASP.NET WebForms. Included a pluggable data provider model so that calendar events could be aggregated from many data sources.</li>
+                                <li>Developed the "myBusiness" application. myBusiness is a reporting tool that the Mary Kay sales force uses to see how their sales and recruiting is doing. It also provides alerts when they are close to certain recruiting or sales goals</li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <h3 class="title">Programmer - <span class="place">USDATA</span> <span class="year">(1996 - 1998)</span></h3>
+
+                            <ul>
+                                <li>Used Microsoft Visual C/C++, Visual InterDev, Visual Basic, Visual J++, MFC, and ATL to develop distributed component solutions for the factory automation industry. Developed custom OLE containers and ActiveX/OLE controls with MFC and ATL.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!--
                 <section class="blog section">
                     <div class="section-inner">
                         <h2 class="heading">Latest Blog Posts</h2>
                         <div id="rss-feeds" class="content">
-                        </div><!--//content-->
+                        </div>
                     </div>
-                </section><!--//section-->
+                </section>
+                -->
 
                 <section class="github section">
                     <div class="section-inner">
-                        <h2 class="heading">My GitHub</h2>
+                        <h2 class="heading">My GitHub Activity</h2>
                         <div id="ghfeed" class="ghfeed">
                         </div><!--//ghfeed-->
                     </div><!--//secton-inner-->
@@ -99,7 +145,7 @@
                         <h2 class="heading">Skills</h2>
                         <div class="content">
                             <p class="intro">
-                                Lorem ipsum dolor sit amet, alienum mnesarchum cum ei, usu vivendum urbanitas te, te causae atomorum vix. Agam consectetuer has te. Cum timeam omittam ne. Persius diceret pro in. Vim ad volutpat similique.</p>
+                                While I have a broad range of skills, below are a few that I consider to be among my best.</p>
                             
                             <div class="skillset">
                                 <div class="item">
@@ -107,53 +153,46 @@
                                     <div class="level-bar">
                                         <div class="level-bar-inner" data-level="96%">
                                         </div>                                      
-                                    </div><!--//level-bar-->                                 
-                                </div><!--//item-->
+                                    </div>                                
+                                </div>
 
                                 <div class="item">
                                     <h3 class="level-title">Javascript<span class="level-label">Expert</span></h3>
                                     <div class="level-bar">
                                         <div class="level-bar-inner" data-level="90%">
                                         </div>                                      
-                                    </div><!--//level-bar-->                                 
-                                </div><!--//item-->
+                                    </div>                                
+                                </div>
+                                
+                                <div class="item">
+                                    <h3 class="level-title">ASP.NET WebAPI<span class="level-label">Pro</span></h3>
+                                    <div class="level-bar">
+                                        <div class="level-bar-inner" data-level="85%">
+                                        </div>                                      
+                                    </div>                                
+                                </div>
                                 
                                 <div class="item">
                                     <h3 class="level-title">ASP.NET MVC<span class="level-label">Pro</span></h3>
                                     <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="85%">
+                                        <div class="level-bar-inner" data-level="80%">
                                         </div>                                      
-                                    </div><!--//level-bar-->                                 
-                                </div><!--//item-->
+                                    </div>                                
+                                </div>
 
                                 <div class="item">
                                     <h3 class="level-title">HTML5 &amp; CSS3<span class="level-label">Pro</span></h3>
                                     <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="80%">
+                                        <div class="level-bar-inner" data-level="75%">
                                         </div>                                      
-                                    </div><!--//level-bar-->                                 
-                                </div><!--//item-->
+                                    </div>                                
+                                </div>
 
                                 <!--<p><a class="more-link" href="#"><i class="fa fa-external-link"></i> More on Coderwall</a></p>-->
                             </div>              
                         </div><!--//content-->  
                     </div><!--//section-inner-->                 
                 </aside><!--//section-->
-                
-                <aside class="experience aside section">
-                    <div class="section-inner">
-                        <h2 class="heading">Work Experience</h2>
-                        <div class="content">
-                            <div class="item">
-                                <h3 class="title">Technical Architect - <span class="place"><a href="http://www.marykay.com">Mary Kay</a></span> <span class="year">(2009 - Present)</span></h3>
-                                <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.</p>
-                            </div><!--//item-->
-                            <div class="item">
-                                <h3 class="title">Technology Consultant - <span class="place"><a href="http://www.learnvisualstudio.net">LearnVisualStudio.NET</a></span> <span class="year">(2006 - 2009)</span></h3>
-                                <p>Vivamus a tortor eu turpis pharetra consequat quis non metus. Aliquam aliquam, orci eu suscipit pellentesque, mauris dui tincidunt enim. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.</p>
-                            </div><!--//item-->
-                    </div>
-                </aside>
 
                 <aside class="education aside section">
                     <div class="section-inner">
@@ -162,7 +201,11 @@
                             <div class="item">                      
                                 <h3 class="title"><i class="fa fa-graduation-cap"></i> Computer Science</h3>
                                 <h4 class="university">University of North Texas <span class="year">(1994-1996)</span></h4>
-                            </div><!--//item-->
+                            </div>
+                            <div class="item">                      
+                                <h3 class="title"><i class="fa fa-graduation-cap"></i> Computer Science</h3>
+                                <h4 class="university">Tarrant County Junior College <span class="year">(1989-1992)</span></h4>
+                            </div>
                         </div><!--//content-->
                     </div><!--//section-inner-->
                 </aside><!--//section-->
