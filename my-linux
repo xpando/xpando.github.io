@@ -1,0 +1,2 @@
+git clone https://github.com/xpando/my-linux ~/my
+~/my/sync.sh
