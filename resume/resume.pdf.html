@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>David Findley</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: block;
+}
+
+body {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.42857143;
+  background-color: #F0F0F0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Segoe UI', 'Calibri', 'sans-serif';
+}
+
+/* Typical page borders are awkward when rendered to PDF. */
+body.pdf {
+  background-color: #FFFFFF;
+}
+
+/* Adobe or wkhtmltopdf has issues with the <main> tag, so we use <div> for
+the PDF case, <main> for the HTML case, and style both via an ID. */
+#main {
+  background-color: #FFF;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #E6E6E6;
+}
+
+body.pdf > #main {
+  border: none;
+}
+
+#container > header {
+  padding-top: 6em;
+  padding-bottom: 1em;
+}
+
+body.pdf #container > header {
+  padding: 0;
+}
+
+#main > #container > section {
+  margin-left: 150px;
+  position: relative;
+  display: block;
+}
+
+section > div {
+  margin-bottom: 60px;
+}
+
+span.fa
+{
+  font-size: 56px;
+  position: absolute;
+  top: 37px;
+  transform: translateY(-50%);
+  left: -100px;
+  color: #1a4367;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #EEE;
+}
+
+.tenure, .keywords {
+  font-size: 75%;
+}
+
+h1 {
+  margin: 0;
+  font-size: 46px;
+  display: inline-block;
+}
+
+h2 {
+  font-size: 30px;
+  color: #4376a2;
+  text-transform: uppercase;
+  font-weight: normal;
+  padding-top: 20px;
+  margin-bottom: 60px;
+}
+
+h3 {
+  margin-bottom: 0;
+  font-size: 18px;
+}
+
+a, a:visited {
+  color: #428BCA;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.defunct {
+  color: #989898;
+  font-weight: bold;
+}
+
+#summary {
+  font-size: 150%;
+  margin-left: 0;
+  padding: 20px 0;
+}
+
+#summary > p > strong {
+  font-size: 1.25em;
+}
+
+#contact {
+  float: right;
+}
+
+#summary > header > .fa-info {
+  font-size: 70px;
+  /*letter-spacing: 5px; PDFs hate letter-spacing */
+  text-transform: uppercase;
+  font-weight: normal;
+  top: 50%;
+  left: -85px;
+  transform: translateY(-50%);
+}
+
+#summary h2 {
+  display: none;
+}
+
+
+.label-keyword {
+  display: inline-block;
+  background: #e8f4ff;
+  color: black;
+  font-size: 0.9em;
+  padding: 5px;
+  border: 1px solid #357ebd;
+  border-radius: 5px;
+  margin-top: 2px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.notes {
+  font-size: 10px;
+  display: block;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.card-skills {
+    position: relative;
+}
+.card-nested {
+    min-height: 0;
+    margin-bottom: 10px;
+    border-width: 1px 0 0 0;
+}
+.card {
+    background: #FFF;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.skill-level {
+  border-radius: 3px;
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+  width: 10px;
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.skill-level .skill-progress {
+  position: absolute;
+  border-radius: 3px;
+  bottom: 0;
+  width: 100%;
+  -webkit-transition: height 1s ease;
+}
+.skill-level .skill-progress.beginner {
+  height: 50%;
+  background: #e74c3c;
+}
+.skill-level .skill-progress.intermediate {
+  height: 70%;
+  background: #f1c40f;
+}
+.skill-level .skill-progress.advanced {
+  height: 80%;
+  background: #428bca;
+}
+.skill-level .skill-progress.master {
+  height: 95%;
+  background: #5cb85c;
+}
+.skill-info {
+  margin-left: 10px;
+}
+@media (max-width: 480px) {
+  .skill-info {
+    margin-left: 20px;
+  }
+}
+.skill-info > strong {
+  font-weight: 400;
+  font-size: 24px;
+  color: #1d1d1d;
+  line-height: 24px;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.card-skills {
+  position: relative;
+}
+
+.space-top {
+    margin-top: 5px;
+}
+
+#container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#elevator-pitch {
+  text-align: center;
+  font-size: 24px;
+  color: #BFC1C3;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.res-label {
+  font-style: italic;
+}
+</style>
+
+
+  </head>
+
+
+  <body>
+    <main id="main"> 
+      <div id="container">
+      <header>
+
+
+        <h1>David Findley</h1>
+
+        <div id="contact">
+          <div class="email"><a href="mailto:david@davidfindley.net">david@davidfindley.net</a></div>
+          
+          <div class="website"><a href="https://www.davidfindley.net">https://www.davidfindley.net</a></div>
+        </div>
+      </header>
+
+
+
+
+<hr>
+<section id="summary">
+    <header>
+      <span class="fa fa-lg fa-info"></span>  <h2>info</h2>
+    </header>
+    I am a software engineer with 20 years experience delivering web applications used by millions of users worldwide. I love using technology to solve difficult problems that delight and amaze my customers.
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+<section id="employment">
+    <header>
+      <span class="fa fa-lg fa-building"></span>  <h2>employment</h2>
+    </header>
+
+<div>
+  <h3><em>Sr. Software Engineer</em>,
+    <a href="https://amazon.com">Amazon</a>
+    </h3>
+    <span class="tenure">2016-08 — Present</span>
+  <p><p>Amazon automated advertising provides services to hundreds of marketing teams across Amazon that enable experimentation and analysis of marketing campaigns. Our system matches the best campaigns with each customer based on many factors such as a campaign&#39;s historical performance, customer behavior and ML models produced by Amazon&#39;s data science teams. My responsiblities include prototyping, system design and reviews, code reviews, implementation, operations and mentoring other SDEs. The majority of my individual project work has been on email and mobile push metrics and reporting. Here are some highlights from my time at Amazon so far:</p>
+</p>
+  <ul>
+    <li>Designed event processing pipeline for ingesting, processing and sharing event data with internal analytics teams.</li>
+    <li>Implemented streaming click/open analytics using AWS Kinesis and AWS Glue. This project replaced the Oracle implementation and reduced the delay for metric data availablity from 24-48hrs to 1-2 hours.</li>
+    <li>Implemented idempotency enforcement for email sending at scale ensuring that no email is sent more than once.</li>
+    <li>Prototyped realtime click/open rate dashboard using ElasticSearch and Kibana for a team hackathon.</li>
+  </ul>
+</div>
+<div>
+  <h3><em>Technical Architect</em>,
+    <a href="https://marykay.com">Mary Kay</a>
+    </h3>
+    <span class="tenure">2009-08 — 2016-08</span>
+  <p><p>Mary Kay manufactures and sells cosmetics through a global network of independent beauty consultants. Having spent the majority of my career at Mary Kay, I enjoyed working on a diverse set of products and services that enabled the company grow into a truly global company with over $4billion of anual wholesale volume. Here are some hilights of the things I worked on most recently at Mary Kay:</p>
+</p>
+  <ul>
+    <li>Worked on replatforming marykay.com and marykayintouch.com on Sitecore CMS. In this role I acted as the Sitecore architect. I provided prototypes and code samples for the more difficult parts of the application and provided technical guidance to the development staff and partners that were building the solution. I also implemented the integration of Sitecore with Mary Kay&#39;s product catalog system and built the search and faceted product category pages.</li>
+    <li>Built the CI/CD deployment pipeline for the Sitecore projects. Prior to the Sitecore projects these sites were built using Sharepoint and releases would take as long as 6 hours to complete. Using my automated build and deploy system these releases could be executed in minutes. Additionally, developers could use the same deployment scripts on their local development machines which reduced their environment setup time from days to minutes compared to the Sharepoint development process.</li>
+    <li>Prototyped deploying Sitecore on Windows Server containers as a POC for our operations group.</li>
+    <li>Led the design and implementation of a UX redesign for myCustomers. myCustomers is a CRM tool that Mary Kay consultants use to manage their customer list and orders placed online at marykay.com. I boostrapped the project using KockoutJS and Bootstrap css. Working with BAs and Stakeholders in weekly iterations I would get feedback and approval on UX using functional protoypes built using KnockuotJS, Twitter Bootstrap and mocked backend services. These prototypes were built directly in the project and the team and I would complete the implementation once they UX was approved. We completed the redesign in 2 months compared to the 15 month developemnt effort on the previous version. My team received a CIO award for delivering the finished product in record time and the positive feedback from our stake holders and Mary Kay consultants.</li>
+    <li>I integrated ElasticSearch with myCustomers to provide the feceted customer and order history searches. I was able to rapidly implement this feature because of the async event based architecture of the backend services I had previously built.</li>
+    <li>Led the technical design and implementation of the services for marykay.com and its Personal Web Site program that allows Mary Kay consultants to sign up for and sell Mary Kay products online. I used a domain driven design approach and a CQRS/EventSourced architecture. I built out the intial code, unit tests and build automation. As the project grew I provided mentoring and code reviews for new team members.</li>
+    <li>The FrontOffice CRM sytem is a WPF application used internally by telepone support. The web browser views in the application used an embedded IE control that sometimes crashed the application. I implmented a new model that hosted the web browser in another process similar to how Google Chrome works. This reduced the impact of web view crashes and enabled the use of newer versions of IE.</li>
+    <li>The FrontOffice CRM system also needed a realtime push notification system to send state change notifications between all of the running instances. I built a service and client API for this feature. The client API provided a reactive programming model using .NET Rx extensions. The real challenge that I solved was enabling the client to write message filters that were applied on the server reducing network traffic.</li>
+    <li>Developed a Silverlight application that would display reporting data from an OLAP cube overlaid on a map. Data would be displayed in regions, states and zips depending on the zoom level. Allowed user to adjust coloring and ranges for the quintiles.</li>
+  </ul>
+</div>
+<div>
+  <h3><em>Technology Consultant</em>,
+    <a href="https://www.devu.com/">DevU</a>
+    </h3>
+    <span class="tenure">2006-04 — 2009-08</span>
+  <p><p>DevU (formerly LearnVisualStudio.net) is a video training site focused mainly on Microsoft .NET languages and tools. In this startup environment of about 4 employees I took on many roles from building the cms, payment and email campaign systems to developing example code used for training content.</p>
+</p>
+  <ul>
+    <li>Developed ecommerce solution for selling subscription based access to video training content. Both LearnVisualStudio.NET and TrainingSpot.com use this solution.</li>
+    <li>Developed an email campaign tool used to drive traffic and sales for LearnVisualStudio.NET</li>
+    <li>Researched and provided training course materials for LearnVisualStudio.NET.</li>
+    <li>Developed and recorded video training content for ASP.NET MVC 1.0.</li>
+    <li>Built and maintained web and database server infrastructure.</li>
+  </ul>
+</div>
+<div>
+  <h3><em>Technical Consultant</em>,
+    <a href="https://marykay.com">Mary Kay</a>
+    </h3>
+    <span class="tenure">1998-10 — 2006-04</span>
+  <p></p>
+  <ul>
+    <li>Implemented the first version of marykayintouch.com, a content portal used by Mary Kay sales consultants to access news and information from Mary Kay corporate and to access many of the other suite of applications provided by Mary Kay headquarters. Used asp 3.0, VB 6, Visual InterDev and Sql Server. I also participated in the conversion of this project to .NET in later years. After porting to .NET I integrated the Google search appliance to provide a better search experience to the consultants.</li>
+    <li>Implemented core framework components shared by many of the .NET applications including the online ordering site.</li>
+    <li>Implemented the mail order entry application. This application was particularly challenging because it required quite a lot of keyboard interaction so that the data entry people could quickly navigate the order sheets. It was basically a SPA application developed in 2001-2002 using HTCs and the WebService behavior HTC from Microsoft. One interesting aspect was I built a DataSet in JavaScript so the client code was very similar to code that manipulated the order on the server side.</li>
+    <li>Implemented a calendar application using ASP.NET WebForms. Included a pluggable data provider model so that calendar events could be aggregated from many data sources.</li>
+    <li>Implemented the myBusiness application. myBusiness is a reporting tool that the Mary Kay sales force uses to see how their sales and recruiting is doing. It also provides alerts when they are close to certain recruiting or sales goals.</li>
+  </ul>
+</div>
+<div>
+  <h3><em>Programmer</em>,
+    USData
+    </h3>
+    <span class="tenure">1996-01 — 1998-10</span>
+  <p></p>
+  <ul>
+    <li>Used Microsoft Visual C/C++, Visual InterDev, Visual Basic, Visual J++, MFC, and ATL to develop distributed component solutions for the factory automation industry. Developed custom OLE containers and ActiveX/OLE controls with MFC and ATL.</li>
+  </ul>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+<section id="education">
+    <header>
+      <span class="fa fa-lg fa-mortar-board"></span>  <h2>education</h2>
+    </header>
+<div>
+<h3>
+University of North Texas
+</h3>
+<span class="tenure">1994-01 — 1996-01</span>
+
+</div>
+<div>
+<h3>
+Tarrant County Junior College
+</h3>
+<span class="tenure">1989-01 — 1992-01</span>
+
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </main>
+  </body>
+</html>
