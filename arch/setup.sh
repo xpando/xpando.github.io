@@ -68,11 +68,11 @@ EOF
 # AUR Configuration
 ##################################################################
 echo "Installing additional AUR packages..."
-sudo -u $username git clone https://aur.archlinux.org/yay.git ~/tmp/yay
-cd /tmp/yay
+sudo -u $username git clone https://aur.archlinux.org/yay.git /home/$username/yay
+cd /home/$username/yay
 sudo -u $username makepkg -si
 cd ~
-rm -rf /tmp/yay
+rm -rf /home/$username/yay
 
 ##################################################################
 # Install additional packages
