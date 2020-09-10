@@ -36,7 +36,7 @@ pkgs=(
 )
 
 echo "Selecting package mirrors."
-pacman -Sy reflector
+pacman -Sy --noconfirm reflector
 reflector --verbose -l 10 -f 5 -c US -p https --save /etc/pacman.d/mirrorlist
 echo "Done."
 
