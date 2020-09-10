@@ -12,7 +12,7 @@ ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 ##################################################################
 # Locale
 ##################################################################
-sed --in-place=.bak -r 's/^#(en_US\..+)/\1/' /etc/locale.gen
+sed --in-place=.bak -r 's/^#(en_US.+)/\1/' /etc/locale.gen
 locale-gen
 cat << EOF > /etc/locale.conf
 LANG=en_US.UTF-8
@@ -44,7 +44,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ##################################################################
 # User Configuration
 ##################################################################
-echo "Root password:"
+echo "Setting Root Password"
 passwd
 
 read -r -p "Enter user name:" username
@@ -70,14 +70,14 @@ EOF
 echo "Installing additional AUR packages..."
 sudo -u $username git clone https://aur.archlinux.org/yay.git /home/$username/yay
 cd /home/$username/yay
-sudo -u $username makepkg -si
+sudo -u $username makepkg -si --noconfirm
 cd ~
 rm -rf /home/$username/yay
 
 ##################################################################
 # Install additional packages
 ##################################################################
-sudo -u $username yay -Syyu --noconfirm --nodiffmenu --noeditmenu ${pkgs[@]}
+sudo -u $username yay -S --noconfirm --nodiffmenu --noeditmenu ${pkgs[@]}
 
 ##################################################################
 # Dot files 
