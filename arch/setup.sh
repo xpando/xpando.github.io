@@ -12,7 +12,7 @@ ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 ##################################################################
 # Locale
 ##################################################################
-sed --in-place=.bak -r 's/^#(en_US.+)/\1/' /etc/locale.gen
+sed --in-place=.bak -r 's/^#(en_US.+)`/\1/' /etc/locale.gen
 locale-gen
 cat << EOF > /etc/locale.conf
 LANG=en_US.UTF-8
@@ -68,15 +68,18 @@ EOF
 # AUR Configuration
 ##################################################################
 echo "Installing additional AUR packages..."
-sudo -u $username git clone https://aur.archlinux.org/yay.git /home/$username/yay
-cd /home/$username/yay
+mkdir -p /tmp/yay
+chown $username /tmp/yay
+sudo -u $username git clone https://aur.archlinux.org/yay.git /tmp/yay
+cd /tmp/yay
 sudo -u $username makepkg -si --noconfirm
 cd ~
-rm -rf /home/$username/yay
+rm -rf /tmp/yay
 
 ##################################################################
 # Install additional packages
-##################################################################
+##################################################################o
+sudo -u $username yay -Syyu
 sudo -u $username yay -S --noconfirm --nodiffmenu --noeditmenu ${pkgs[@]}
 
 ##################################################################
