@@ -57,27 +57,27 @@ passwd $username
 echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 ##################################################################
-# AUR Configuration
-##################################################################
-echo "Installing additional AUR packages..."
-git clone https://aur.archlinux.org/yay.git ~/tmp/yay
-cd /tmp/yay
-makepkg -si
-cd ~
-rm -rf /tmp/yay
-
-##################################################################
-# Install additional packages
-##################################################################
-yay -Syyu --noconfirm --nodiffmenu --noeditmenu ${pkgs[@]}
-
-##################################################################
 # Console/TTY font
 ##################################################################
 cat << EOF > /etc/vconsole.conf
 KEYMAP=us
 FONT=ter-powerline-v24n
 EOF
+
+##################################################################
+# AUR Configuration
+##################################################################
+echo "Installing additional AUR packages..."
+sudo -u $username git clone https://aur.archlinux.org/yay.git ~/tmp/yay
+cd /tmp/yay
+sudo -u $username makepkg -si
+cd ~
+rm -rf /tmp/yay
+
+##################################################################
+# Install additional packages
+##################################################################
+sudo -u $username yay -Syyu --noconfirm --nodiffmenu --noeditmenu ${pkgs[@]}
 
 ##################################################################
 # Dot files 
