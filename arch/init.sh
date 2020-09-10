@@ -47,7 +47,7 @@ echo "Done."
 
 echo "Executing setup script."
 curl -s https://www.davidfindley.net/arch/setup.sh > /mnt/root/setup.sh
-arch-chroot /mnt "/bin/bash" "/root/setup.sh"
+arch-chroot /mnt "/bin/bash /root/setup.sh"
 echo "Done."
 
 umount -R /mnt
