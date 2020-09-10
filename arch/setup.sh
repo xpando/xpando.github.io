@@ -84,11 +84,14 @@ rm -rf /tmp/yay
 
 ##################################################################
 # Install additional packages
-##################################################################o
-sudo -u $username yay -Syyu
-sudo -u $username yay -S --noconfirm --nodiffmenu --noeditmenu ${pkgs[@]}
+##################################################################
+sudo -u $username yay -S \
+  --noconfirm --nodiffmenu --noeditmenu \
+  ${pkgs[@]}
 
 ##################################################################
 # Dot files 
 ##################################################################
-sudo -u $username chezmoi init https://github.com/xpando/dotfiles.git --apply
+sudo -u $username chezmoi init \
+  https://github.com/xpando/dotfiles.git \
+  --apply
