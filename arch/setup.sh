@@ -12,7 +12,7 @@ ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 ##################################################################
 # Locale
 ##################################################################
-sed --in-place=.bak 's/^#en_US\./' /etc/locale.gen
+sed --in-place=.bak 's/^#(en_US\..+)/\1/' /etc/locale.gen
 locale-gen
 cat << EOF > /etc/locale.conf
 LANG=en_US.UTF-8
