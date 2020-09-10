@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 
 # Base system packages
@@ -37,6 +39,7 @@ pkgs=(
 
 echo "Selecting package mirrors."
 pacman -Sy --noconfirm reflector
+
 reflector --verbose -l 10 -f 5 -c US -p https --save /etc/pacman.d/mirrorlist
 echo "Done."
 
@@ -47,7 +50,8 @@ echo "Done."
 
 echo "Executing setup script."
 curl -s https://www.davidfindley.net/arch/setup.sh > /mnt/root/setup.sh
-arch-chroot /mnt "/bin/bash /root/setup.sh"
+chmod +x /mnt/root/setup.sh
+arch-chroot /mnt /root/setup.sh
 echo "Done."
 
 umount -R /mnt

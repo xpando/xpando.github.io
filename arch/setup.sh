@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pkgs=(
   powerline-fonts-git   # better font for ttys
   antibody-bin          # zsh plugin manager
@@ -12,7 +14,7 @@ ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 ##################################################################
 # Locale
 ##################################################################
-sed --in-place=.bak -r 's/^#(en_US.+)`/\1/' /etc/locale.gen
+sed --in-place=.bak -r 's/^#(en_US.+)/\1/' /etc/locale.gen
 locale-gen
 cat << EOF > /etc/locale.conf
 LANG=en_US.UTF-8
@@ -39,6 +41,10 @@ systemctl enable sshd
 ##################################################################
 read -r -p "Enter boot device (default: /dev/sda)" $boot_device
 grub-install --target=i386-pc ${boot_device:-/dev/sda}
+# TODO: add the following to /etc/default/grub
+#GRUB_CMDLINE_LINUX_DEFAULT="quiet nomodeset"
+#GRUB_GFXMODE=1920x1200x32,1600x1200x32,1900x1080x32,1024x768x32,auto
+#GRUB_GFXPAYLOAD_LINUX=keep
 grub-mkconfig -o /boot/grub/grub.cfg
 
 ##################################################################
