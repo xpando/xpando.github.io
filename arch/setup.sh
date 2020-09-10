@@ -14,10 +14,10 @@ ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 ##################################################################
 sed --in-place=.bak 's/^#en_US\./' /etc/locale.gen
 locale-gen
-cat << EOF
+cat << EOF > /etc/locale.conf
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
-EOF > /etc/locale.conf
+EOF
 
 ##################################################################
 # Network Configuration
@@ -25,11 +25,11 @@ EOF > /etc/locale.conf
 read -r -p "Enter host name:" hostname
 
 echo "$hostname" > /etc/hostname
-cat << EOF
+cat << EOF > /etc/hosts
 127.0.0.1   localhost
 ::1         localhost
 127.0.0.1   $hostname
-EOF > /etc/hosts
+EOF
 
 systemctl enable NetworkManager
 systemctl enable sshd
@@ -74,10 +74,10 @@ yay -Syyu --noconfirm --nodiffmenu --noeditmenu ${pkgs[@]}
 ##################################################################
 # Console/TTY font
 ##################################################################
-cat << EOF
+cat << EOF > /etc/vconsole.conf
 KEYMAP=us
 FONT=ter-powerline-v24n
-EOF > /etc/vconsole.conf
+EOF
 
 ##################################################################
 # Dot files 
