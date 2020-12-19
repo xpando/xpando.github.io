@@ -9,6 +9,7 @@ pkgs=(
   linux 
   linux-firmware 
   intel-ucode 
+  hwinfo
   grub 
   networkmanager
   alsa-utils
@@ -19,6 +20,7 @@ pkgs=(
   openssh 
   gnupg 
   zsh 
+  tmux
   git 
   curl 
   reflector             # package mirror list utility
@@ -34,7 +36,6 @@ pkgs=(
   neovim 
   htop 
   neofetch
-  tmux
 )
 
 echo "Selecting package mirrors."

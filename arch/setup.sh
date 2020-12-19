@@ -95,3 +95,7 @@ sudo -u $username yay -S \
 sudo -u $username chezmoi init \
   https://github.com/xpando/dotfiles.git \
   --apply
+
+# Apply console theme
+clear > /etc/issue
+/home/$username/.local/bin/apply-tty-theme.sh >> /etc/issue
