@@ -74,9 +74,8 @@ EOF
 # AUR Configuration
 ##################################################################
 echo "Installing additional AUR packages..."
-mkdir -p /tmp/yay
+git clone https://aur.archlinux.org/yay.git /tmp/yay
 chown $username /tmp/yay
-sudo -u $username git clone https://aur.archlinux.org/yay.git /tmp/yay
 cd /tmp/yay
 sudo -u $username makepkg -si --noconfirm
 cd ~
@@ -85,14 +84,12 @@ rm -rf /tmp/yay
 ##################################################################
 # Install additional packages
 ##################################################################
-sudo -u $username yay -S \
-  --noconfirm --nodiffmenu --noeditmenu \
-  ${pkgs[@]}
+yay -S --noconfirm --nodiffmenu --noeditmenu ${pkgs[@]}
 
 ##################################################################
 # Sudo Configuration
 ##################################################################
-sudo -u $user curl https://www.davidfindley.net/dotfiles/install.sh | sudo -u $user bash
+sudo -u $username curl https://www.davidfindley.net/dotfiles/install.sh | sudo -u $username bash
 
 # Apply console theme
 clear > /etc/issue
