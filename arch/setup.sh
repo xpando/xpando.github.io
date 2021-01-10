@@ -24,7 +24,7 @@ EOF
 ##################################################################
 # Network Configuration
 ##################################################################
-read -r -p "Enter host name:" hostname
+read "hostname?Enter host name:"
 
 echo "$hostname" > /etc/hostname
 cat << EOF > /etc/hosts
@@ -39,8 +39,8 @@ systemctl enable sshd
 ##################################################################
 # Boot Loader Configuration
 ##################################################################
-read -r -p "Enter boot device (default: /dev/vda1)" $boot_device
-grub-install --target=i386-pc ${boot_device:-/dev/sda}
+read "boot_device?Enter boot device (default: /dev/vda1)"
+grub-install --target=i386-pc ${boot_device:-/dev/vda1}
 # TODO: add the following to /etc/default/grub
 #GRUB_CMDLINE_LINUX_DEFAULT="quiet nomodeset"
 #GRUB_GFXMODE=1920x1200x32,1600x1200x32,1900x1080x32,1024x768x32,auto
@@ -51,9 +51,9 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # User Configuration
 ##################################################################
 echo "Setting Root Password"
-passwd
+passwd root
 
-read -r -p "Enter user name:" username
+read "username?Enter user name:"
 useradd -mg users -G wheel -s /usr/bin/zsh $username
 passwd $username
 
