@@ -51,5 +51,4 @@ echo "Done."
 echo "Executing setup script."
 curl -s https://www.davidfindley.net/arch/setup.sh > /mnt/root/setup.sh
 chmod +x /mnt/root/setup.sh
-arch-chroot /mnt
-echo "You can now run /home/root/setup.sh to complete the installation"
+arch-chroot /mnt /usr/bin/zsh -i -c /home/root/setup.sh
