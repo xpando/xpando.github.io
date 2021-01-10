@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/zsh
 
 pkgs=(
   powerline-fonts-git   # better font for ttys
@@ -88,6 +88,11 @@ rm -rf /tmp/yay
 sudo -u $username yay -S \
   --noconfirm --nodiffmenu --noeditmenu \
   ${pkgs[@]}
+
+##################################################################
+# Sudo Configuration
+##################################################################
+sudo -u $user curl https://www.davidfindley.net/dotfiles/install.sh | sudo -u $user bash
 
 # Apply console theme
 clear > /etc/issue

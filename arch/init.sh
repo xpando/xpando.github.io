@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/zsh
 
 set -e
 
@@ -18,6 +18,7 @@ pkgs=(
   bind-tools 
   sudo 
   openssh 
+  rsync
   gnupg 
   zsh 
   tmux
