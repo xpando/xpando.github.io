@@ -39,7 +39,7 @@ systemctl enable sshd
 ##################################################################
 # Boot Loader Configuration
 ##################################################################
-read -r -p "Enter boot device (default: /dev/vda)" $boot_device
+read -r -p "Enter boot device (default: /dev/vda1)" $boot_device
 grub-install --target=i386-pc ${boot_device:-/dev/sda}
 # TODO: add the following to /etc/default/grub
 #GRUB_CMDLINE_LINUX_DEFAULT="quiet nomodeset"
