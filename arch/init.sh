@@ -24,14 +24,12 @@ pkgs=(
   git 
   curl 
   reflector             # package mirror list utility
-  chezmoi               # dot file manager
   exa                   # ls replacement 
   bat                   # colorized cat
   fd                    # find replacement 
   fasd                  # quick access to files and directories. Similar to autojump/z 
   fzf                   # general-purpose fuzzy finder
   ripgrep               # better grep with .gitignore support
-  the_silver_searcher   # alternative to ripgrep
   vim 
   neovim 
   htop 

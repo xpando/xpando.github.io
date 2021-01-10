@@ -39,7 +39,7 @@ systemctl enable sshd
 ##################################################################
 # Boot Loader Configuration
 ##################################################################
-read -r -p "Enter boot device (default: /dev/sda)" $boot_device
+read -r -p "Enter boot device (default: /dev/vda)" $boot_device
 grub-install --target=i386-pc ${boot_device:-/dev/sda}
 # TODO: add the following to /etc/default/grub
 #GRUB_CMDLINE_LINUX_DEFAULT="quiet nomodeset"
@@ -88,13 +88,6 @@ rm -rf /tmp/yay
 sudo -u $username yay -S \
   --noconfirm --nodiffmenu --noeditmenu \
   ${pkgs[@]}
-
-##################################################################
-# Dot files 
-##################################################################
-sudo -u $username chezmoi init \
-  https://github.com/xpando/dotfiles.git \
-  --apply
 
 # Apply console theme
 clear > /etc/issue
